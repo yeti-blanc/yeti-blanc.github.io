@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yeti Blanc | Music</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      background: radial-gradient(ellipse at bottom, #0d0d2b 0%, #1a1a40 100%);
+      color: #eee;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Star field */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: transparent;
+      box-shadow: 
+        100px 150px 2px #fff,
+        200px 300px 2px #fff,
+        400px 80px 2px #fff,
+        600px 400px 2px #fff,
+        800px 200px 2px #fff,
+        900px 100px 2px #fff;
+      animation: twinkle 6s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes twinkle {
+      0%, 100% {opacity: 0.8;}
+      50% {opacity: 0.3;}
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 3rem 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .site-name {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 4rem;
+      color: #87CEEB;
+      line-height: 1;
+    }
+
+    .links {
+      margin-top: 1rem;
+    }
+
+    .links a {
+      display: inline-block;
+      margin: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      background: rgba(135, 206, 235, 0.3);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.3s;
+    }
+
+    .links a:hover {
+      background: rgba(135, 206, 235, 0.6);
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1000px;
+      margin: 2rem auto;
+      gap: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-images {
+      flex: 1;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .hero-images img {
+      width: 32%;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .hero-images img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 25px rgba(0,0,0,0.6);
+    }
+
+    .track-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      width: 250px;
+    }
+
+    .card {
+      background: rgba(30, 30, 60, 0.8);
+      border-radius: 16px;
+      box-shadow: 0 4px 15px rgba(135,206,235,0.3);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+      backdrop-filter: blur(4px);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 25px rgba(135,206,235,0.6);
+      filter: brightness(1.1);
+    }
+
+    .card h3 {
+      margin-top: 0.5rem;
+      font-size: 1.1rem;
+      color: #87CEEB;
+    }
+
+    section {
+      max-width: 1000px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      color: #87CEEB;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(0,0,50,0.8);
+      color: #ccc;
+      z-index: 1;
+      position: relative;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.4rem;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #1E90FF, #00BFFF);
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.2s;
+    }
+
+    a.button:hover {
+      background: linear-gradient(135deg, #005bb5, #0073e6);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="site-name">Yeti Blanc</div>
+    <div class="links">
+      <a href="https://tiles.bio/yetiblanc" target="_blank">Tiles.bio</a>
+      <a href="https://www.instagram.com/yetiblanc" target="_blank">Instagram</a>
+      <a href="https://open.spotify.com/artist/placeholder" target="_blank">Spotify</a>
+      <a href="mailto:hello@yetiblanc.com">Email</a>
+    </div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-images">
+      <img src="image1.jpg" alt="Music scene 1">
+      <img src="image2.jpg" alt="Music scene 2">
+      <img src="image3.jpg" alt="Music scene 3">
+    </div>
+    <div class="track-cards">
+      <div class="card">
+        <h3>Theme Song</h3>
+        <audio controls>
+          <source src="sample1.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="card">
+        <h3>Jingle</h3>
+        <audio controls>
+          <source src="sample2.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+      <div class="card">
+        <h3>Instrumental</h3>
+        <audio controls>
+          <source src="sample3.mp3" type="audio/mpeg">
+        </audio>
+      </div>
+    </div>
+  </div>
+
+  <section id="about">
+    <h2>About My Music</h2>
+    <p style="text-align:center; max-width: 700px; margin: auto; font-size: 1.1rem; line-height: 1.6;">
+      My music blends bold energy with creative storytelling. From theme songs to jingles and full compositions, I aim to make memorable sounds that bring projects to life.
+    </p>
+  </section>
+
+  <section id="contact">
+    <h2>Work With Me</h2>
+    <p style="text-align:center; font-size: 1.1rem;">Interested in commissioning music for your project?</p>
+    <div style="text-align:center;">
+      <a class="button" href="mailto:hello@yetiblanc.com">Get in Touch</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Yeti Blanc. All rights reserved.</p>
+  </footer>
+</body>
+</html>
