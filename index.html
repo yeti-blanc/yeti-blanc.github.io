@@ -8,92 +8,73 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
+      background: linear-gradient(to bottom right, #0a0a23, #1a1a40);
       color: white;
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-      overflow-x: hidden;
     }
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 2rem;
-      flex-wrap: wrap;
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 100vh;
+      padding: 20px;
+      box-sizing: border-box;
     }
-    .brand {
-      font-size: 3rem;
-      font-weight: bold;
-      font-family: 'Trebuchet MS', sans-serif;
-      color: #87ceeb;
-    }
-    .gallery {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-    .gallery img {
-      width: 200px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(255,255,255,0.3);
-    }
-    .cards {
+    .left {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      flex: 1 1 300px;
-      margin-left: 2rem;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+    .left img {
+      width: 90%;
+      max-width: 300px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.2);
+    }
+    .right {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
     }
     .card {
-      background: rgba(255,255,255,0.1);
-      padding: 1rem;
-      border-radius: 15px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.5);
-      transition: transform 0.3s, box-shadow 0.3s;
+      background: rgba(255,255,255,0.05);
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255,255,255,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(135,206,235,0.7);
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
     }
     iframe {
-      border: 0;
       width: 100%;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.9rem;
-      color: #aaa;
+      border: none;
     }
   </style>
 </head>
 <body>
-  <header>
+  <div class="container">
     <div class="left">
-      <div class="brand">Yeti Blanc</div>
-      <div class="gallery">
-        <img src="image1.jpg" alt="Music shot 1">
-        <img src="image2.jpg" alt="Music shot 2">
-        <img src="image3.jpg" alt="Music shot 3">
+      <img src="02_09_24_Circa_Dan LeBatard Show_Gray_KPG_318.jpg" alt="Music Image 1">
+      <img src="Yeti Headshot Black and White.jpg" alt="Music Image 2">
+      <img src="318350262_864480401352218_4246141772687014877_n.jpg" alt="Music Image 3">
+    </div>
+    <div class="right">
+      <div class="card">
+        <iframe style="height:42px;" src="https://bandcamp.com/EmbeddedPlayer/track=86896478/size=small/bgcol=333333/linkcol=ffffff/transparent=true/" seamless><a href="https://yetiblanc.bandcamp.com/track/i-believe-in-travis-kelce-feat-js">I Believe In Travis Kelce (feat. JS)</a></iframe>
+      </div>
+      <div class="card">
+        <iframe style="height:42px;" src="https://bandcamp.com/EmbeddedPlayer/track=3614133750/size=small/bgcol=333333/linkcol=ffffff/transparent=true/" seamless><a href="https://yetiblanc.bandcamp.com/track/mornin-man-feat-greg-cote">Mornin' Man (feat. Greg Cote)</a></iframe>
+      </div>
+      <div class="card">
+        <iframe style="height:42px;" src="https://bandcamp.com/EmbeddedPlayer/track=566721571/size=small/bgcol=333333/linkcol=ffffff/transparent=true/" seamless><a href="https://yetiblanc.bandcamp.com/track/pebble-drive">Pebble Drive</a></iframe>
+      </div>
+      <div class="card">
+        <iframe style="height:42px;" src="https://bandcamp.com/EmbeddedPlayer/track=2574557713/size=small/bgcol=333333/linkcol=ffffff/transparent=true/" seamless><a href="https://yetiblanc.bandcamp.com/track/pirate-radio-anthem">Pirate Radio Anthem</a></iframe>
       </div>
     </div>
-
-    <div class="cards">
-      <div class="card">
-        <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/track=86896478/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://yetiblanc.bandcamp.com/track/i-believe-in-travis-kelce-feat-js">I Believe In Travis Kelce (feat. JS) by Yeti Blanc (feat. JS)</a></iframe>
-      </div>
-      <div class="card">
-        <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/track=3614133750/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://yetiblanc.bandcamp.com/track/mornin-man-feat-greg-cote">Mornin' Man (feat. Greg Cote) by Yeti Blanc</a></iframe>
-      </div>
-      <div class="card">
-        <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/track=566721571/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://yetiblanc.bandcamp.com/track/pebble-drive">Pebble Drive by Yeti Blanc</a></iframe>
-      </div>
-      <div class="card">
-        <iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/track=2574557713/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/artwork=small/transparent=true/" seamless><a href="https://yetiblanc.bandcamp.com/track/pirate-radio-anthem">Pirate Radio Anthem by Yeti Blanc</a></iframe>
-      </div>
-    </div>
-  </header>
-
-  <footer>
-    © 2025 Yeti Blanc · <a href="https://yetiblanc.com" style="color:#87ceeb;">yetiblanc.com</a>
-  </footer>
+  </div>
 </body>
 </html>
