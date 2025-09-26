@@ -41,6 +41,7 @@
       50% {opacity: 0.3;}
     }
 
+    /* Header */
     header {
       width: 95%;
       max-width: 1800px;
@@ -75,7 +76,7 @@
       text-shadow: 0 0 6px #7BAFD4;
     }
 
-    /* Main two-column container */
+    /* Main container */
     .container {
       display: flex;
       gap: 40px;
@@ -146,6 +147,50 @@
       border: 0; 
     }
 
+    /* Additional sections: About Me / Contact */
+    section {
+      width: 95%;
+      max-width: 1200px;
+      margin: 0 auto 60px;
+      padding: 40px 20px;
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+      color: #eee;
+    }
+
+    section h2 {
+      font-family: "Bebas Neue", sans-serif;
+      font-size: 36px;
+      color: #7BAFD4;
+      margin-bottom: 16px;
+    }
+
+    section p, section ul {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    section ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    section ul li {
+      margin-bottom: 8px;
+    }
+
+    section a {
+      color: #7BAFD4;
+      text-decoration: none;
+    }
+
+    section a:hover {
+      color: #fff;
+      text-shadow: 0 0 6px #7BAFD4;
+    }
+
+    /* Footer */
     footer {
       margin-top: 40px;
       padding: 20px;
@@ -154,7 +199,7 @@
       font-size: 13px;
     }
 
-    /* Responsive */
+    /* Responsive adjustments */
     @media (max-width: 1200px) {
       .bandcamp { flex: 0 0 25vw; max-width: 30%; }
       .container { gap: 30px; }
@@ -165,6 +210,17 @@
       .bandcamp { width: 100%; max-width: 100%; margin-left: 0; align-items: center; order: 2; }
       .card { width: 100%; max-width: 720px; }
       .left .img-row { flex-direction: row; gap: 12px; }
+      section {
+        padding: 30px 15px;
+      }
+      
+      section h2 {
+        font-size: 28px;
+      }
+      
+      section p, section ul {
+        font-size: 15px;
+      }
     }
 
     @media (max-width: 420px) {
@@ -178,10 +234,10 @@
 <header>
   <div class="brand">Yeti Blanc</div>
   <div class="links">
-    <a href="https://tiles.bio/yetiblanc" target="_blank">Tiles.bio</a>
+    <a href="https://yetiblanc.bandcamp.com/" target="_blank">Bandcamp</a>
     <a href="https://www.instagram.com/yetiblanc" target="_blank">Instagram</a>
-    <a href="https://open.spotify.com/artist/placeholder" target="_blank">Spotify</a>
-    <a href="mailto:hello@yetiblanc.com">Email</a>
+    <a href="https://x.com/YetiBlanc_" target="_blank">Twitter</a>
+    <a href="mailto:yetiblancmusic@gmail.com">Email</a>
   </div>
 </header>
 
@@ -217,6 +273,25 @@
     </div>
   </aside>
 </main>
+
+<!-- About Me Section -->
+<section class="about-me" aria-label="About Yeti Blanc">
+  <div class="section-content">
+    <h2>About Me</h2>
+    <p>
+      Hi, I’m Yeti Blanc. 
+    </p>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact" aria-label="Contact Yeti Blanc">
+  <div class="section-content">
+    <h2>Contact</h2>
+    <p>Talk to me <a href="mailto:yetiblancmusic@gmail.com">yetiblancmusic@gmail.com</a></p>
+   
+  </div>
+</section>
 
 <footer>
   © 2025 Yeti Blanc · <a href="https://yetiblanc.com" style="color:var(--accent)">yetiblanc.com</a>
