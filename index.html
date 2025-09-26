@@ -41,155 +41,129 @@
       50% {opacity: 0.3;}
     }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      padding: 3rem 2rem;
-      position: relative;
-      z-index: 1;
-    }
+  header{
+    padding:34px 20px 6px;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  .brand{
+    font-family: "Bebas Neue", "Trebuchet MS", Impact, sans-serif;
+    font-size:40px;
+    letter-spacing:1px;
+    color:var(--accent);
+    margin:0 0 8px 0;
+  }
+  .sub{
+    color:#cbd5e1;
+    margin:0 0 18px 0;
+    font-size:14px;
+  }
 
-    .site-name {
-      font-family: 'Bebas Neue', cursive;
-      font-size: 4rem;
-      color: #87CEEB;
-      line-height: 1;
-    }
+  /* main two-column container */
+  .container{
+    max-width:1200px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+    display:flex;
+    gap:28px;
+    align-items:flex-start;
+    box-sizing:border-box;
+  }
 
-    .links {
-      margin-top: 1rem;
-    }
+  /* Left column: images (flexible) */
+  .left{
+    flex:1 1 auto;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .left .img-row{
+    display:flex;
+    gap:12px;
+    align-items:stretch;
+  }
+  .left img{
+    width:100%;
+    height:auto;
+    object-fit:cover;
+    border-radius:12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+    border: 1px solid rgba(255,255,255,0.04);
+  }
 
-    .links a {
-      display: inline-block;
-      margin: 0.4rem;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      background: rgba(135, 206, 235, 0.3);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background 0.3s;
-    }
+  /* Right column: bandcamp cards */
+  .bandcamp {
+    /* no more than 20% of viewport width on wide screens */
+    flex: 0 0 20vw;
+    max-width: 20%;
+    margin-left:auto;             /* push to the right */
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:flex-end;        /* keeps cards right-aligned inside column */
+    box-sizing:border-box;
+  }
 
-    .links a:hover {
-      background: rgba(135, 206, 235, 0.6);
-    }
+  .card{
+    width:100%;                  /* fill the bandcamp column */
+    background: var(--card-bg);
+    padding:10px;
+    border-radius:10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+    transition: transform .25s ease, box-shadow .25s ease, filter .25s;
+    display:block;
+  }
+  .card:hover{
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px var(--card-glow);
+    filter:brightness(1.05);
+  }
 
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      max-width: 1000px;
-      margin: 2rem auto;
-      gap: 2rem;
-      position: relative;
-      z-index: 1;
-    }
+  /* ensure iframe fits card width */
+  .card iframe{ display:block; width:100%; height:42px; border:0; }
 
-    .hero-images {
-      flex: 1;
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-    }
+  /* footer */
+  footer{
+    margin-top: 40px;
+    padding:20px;
+    text-align:center;
+    color:#9aa8bf;
+    font-size:13px;
+  }
 
-    .hero-images img {
-      width: 32%;
-      border-radius: 12px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
+  /* Responsive: collapse to single column on smaller screens */
+  @media (max-width: 900px){
+    .container{ flex-direction:column; gap:20px; padding-bottom:40px; }
+    .bandcamp{
+      width:100%;
+      max-width:100%;
+      margin-left:0;
+      align-items:center;
+      order:2;
     }
+    .card{ width: 100%; max-width:720px; }
+    .left .img-row{ flex-direction:row; gap:12px; }
+  }
 
-    .hero-images img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 6px 25px rgba(0,0,0,0.6);
-    }
-
-    .track-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: 250px;
-    }
-
-    .card {
-      background: rgba(30, 30, 60, 0.8);
-      border-radius: 16px;
-      box-shadow: 0 4px 15px rgba(135,206,235,0.3);
-      padding: 1rem;
-      text-align: center;
-      transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
-      backdrop-filter: blur(4px);
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 25px rgba(135,206,235,0.6);
-      filter: brightness(1.1);
-    }
-
-    .card h3 {
-      margin-top: 0.5rem;
-      font-size: 1.1rem;
-      color: #87CEEB;
-    }
-
-    section {
-      max-width: 1000px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    section h2 {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      color: #87CEEB;
-    }
-
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: rgba(0,0,50,0.8);
-      color: #ccc;
-      z-index: 1;
-      position: relative;
-    }
-
-    a.button {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.8rem 1.4rem;
-      border-radius: 8px;
-      background: linear-gradient(135deg, #1E90FF, #00BFFF);
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.2s;
-    }
-
-    a.button:hover {
-      background: linear-gradient(135deg, #005bb5, #0073e6);
-    }
-  </style>
+  @media (max-width: 420px){
+    .brand{ font-size:32px; }
+    .left .img-row{ flex-direction:column; }
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="site-name">Yeti Blanc</div>
-    <div class="links">
-      <a href="https://tiles.bio/yetiblanc" target="_blank">Tiles.bio</a>
-      <a href="https://www.instagram.com/yetiblanc" target="_blank">Instagram</a>
-      <a href="https://open.spotify.com/artist/placeholder" target="_blank">Spotify</a>
-      <a href="mailto:hello@yetiblanc.com">Email</a>
-    </div>
-  </header>
 
-  <div class="hero">
-    <div class="hero-images">
+<header>
+  <div style="max-width:1200px; margin:0 auto;">
+    <div class="brand">Yeti Blanc</div>
+    <div class="sub">Original music • themes • jingles</div>
+  </div>
+</header>
+
+<main class="container" role="main" aria-label="Yeti Blanc music preview">
+  <!-- flexible left column: images -->
+  <div class="left" aria-hidden="false">
+    <div class="img-row" style="grid-template-columns:repeat(3,1fr);">
       <img src="Collage_Test.png" alt="three picture collage">
     </div>
   </div>
@@ -220,24 +194,11 @@
       </iframe>
     </div>
   </aside>
+</main>
 
-  <section id="about">
-    <h2>About My Music</h2>
-    <p style="text-align:center; max-width: 700px; margin: auto; font-size: 1.1rem; line-height: 1.6;">
-      My music blends bold energy with creative storytelling. From theme songs to jingles and full compositions, I aim to make memorable sounds that bring projects to life.
-    </p>
-  </section>
+<footer>
+  © 2025 Yeti Blanc · <a href="https://yetiblanc.com" style="color:var(--accent)">yetiblanc.com</a>
+</footer>
 
-  <section id="contact">
-    <h2>Work With Me</h2>
-    <p style="text-align:center; font-size: 1.1rem;">Interested in commissioning music for your project?</p>
-    <div style="text-align:center;">
-      <a class="button" href="mailto:hello@yetiblanc.com">Get in Touch</a>
-    </div>
-  </section>
-
-  <footer>
-    <p>&copy; 2025 Yeti Blanc. All rights reserved.</p>
-  </footer>
 </body>
 </html>
