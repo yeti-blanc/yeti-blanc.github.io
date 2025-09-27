@@ -102,12 +102,15 @@
       gap: 18px;
     }
 
-    .left .img-row {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: stretch;
-    }
+    .left img {
+  width: 100%;
+  max-width: 900px;   /* limit how wide it can get */
+  height: auto;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.04);
+}
 
     .left img {
       width: 100%;
