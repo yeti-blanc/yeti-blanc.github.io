@@ -41,41 +41,34 @@
       50% {opacity: 0.3;}
     }
 
-    /* Header with top-aligned links */
-    header {
-      width: 95%;
-      max-width: 1800px;
-      margin: 0 auto;
-      padding: 34px 0 6px;
+    /* Header with brand + links inline */
+header {
+  width: 95%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 34px 0 6px;
 
-      display: flex;                /* Flex container for title + links */
-      justify-content: space-between; /* Brand left, links right */
-      align-items: flex-start;      /* Align links to top of header */
-      flex-wrap: wrap;              /* Wrap on smaller screens */
-    }
+  display: flex;
+  justify-content: flex-start;  /* put brand and links side by side */
+  align-items: flex-end;        /* bottom-align brand + links */
+  gap: 40px;                    /* spacing between brand and links */
+  flex-wrap: wrap;              /* wrap if screen is too small */
+}
 
-    .brand {
-      font-family: "Bebas Neue", "Trebuchet MS", Impact, sans-serif;
-      font-size: 80px;
-      letter-spacing: 1px;
-      color: #7BAFD4;
-      margin: 0 0 8px 0;
-    }
+.brand {
+  font-family: "Bebas Neue", "Trebuchet MS", Impact, sans-serif;
+  font-size: 80px;
+  letter-spacing: 1px;
+  color: #7BAFD4;
+  margin: 0;  /* reset margins */
+}
 
-    .links {
-      display: flex;
-      justify-content: flex-end;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    .links a {
-      color: #7BAFD4;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color .2s, text-shadow .2s;
-    }
+.links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 0; /* no extra margin */
+}
 
     .links a:hover {
       color: #fff;
