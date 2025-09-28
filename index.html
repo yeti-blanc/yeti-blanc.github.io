@@ -122,18 +122,29 @@
     }
 
     /* Right column: Bandcamp cards */
-    .bandcamp {
+    /* Bandcamp: allow multiple fixed-size cards in a row */
+.bandcamp {
   display: flex;
-  flex-wrap: wrap;       /* allow multiple per row */
+  flex-wrap: wrap;         /* wrap to next line when necessary */
   gap: 16px;
   align-items: flex-start;
-  justify-content: flex-end; /* keeps them hugging the right side */
-  flex: 0 0 auto;        /* no fixed width anymore */
+  justify-content: flex-end; /* keep group anchored to the right */
+  flex: 0 0 auto;          /* don't force a percentage width; size to content */
+  max-width: none;         /* remove previous max-width constraint */
+  margin-left: auto;       /* keeps the whole block pushed right in .container */
+  box-sizing: border-box;
 }
 
+/* Each card is fixed to the small embed size */
 .card {
-  width: 170px;  /* matches your iframe */
-  flex: 0 0 auto;
+  width: 170px;            /* fixed card width to match iframe */
+  flex: 0 0 170px;         /* prevents flex from stretching the card */
+  background: var(--card-bg);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s;
+  display: block;
 }
 
     :root {
@@ -155,12 +166,12 @@
       filter: brightness(1.05);
     }
 
-    .card iframe { 
-      display: block; 
-      width: 100%; 
-      height: 75px; 
-      border: 0; 
-    }
+    .card iframe {
+  display: block;
+  width: 170px;
+  height: 284px;
+  border: 0;
+}
 
     /* Additional sections: About Me / Contact */
     section {
@@ -220,23 +231,41 @@
       .container { gap: 30px; }
     }
 
-    @media (max-width: 900px) {
-      .container { flex-direction: column; gap: 20px; padding-bottom: 40px; }
-      .bandcamp { width: 100%; max-width: 100%; margin-left: 0; align-items: center; order: 2; }
-      .card { width: 100%; max-width: 720px; }
-      .left .img-row { flex-direction: row; gap: 12px; }
-      section {
-        padding: 30px 15px;
-      }
-      
-      section h2 {
-        font-size: 28px;
-      }
-      
-      section p, section ul {
-        font-size: 15px;
-      }
-    }
+    @media (max-width: 900px){
+  .container {
+    flex-direction: column;
+    gap: 20px;
+    padding-bottom: 40px;
+  }
+
+  .bandcamp {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    justify-content: center;   /* center the cards */
+    align-items: center;
+    order: 2;
+    display: flex;
+    flex-wrap: wrap;           /* allow wrapping into rows */
+    gap: 16px;
+  }
+
+  .card {
+    width: calc(50% - 12px);   /* two per row */
+    flex: 0 0 calc(50% - 12px);
+    max-width: 320px;          /* prevents stretching too wide */
+  }
+
+  .card iframe {
+    width: 100%;               /* iframe fills card */
+    height: auto;              /* scales with card height */
+  }
+
+  .left .img-row {
+    flex-direction: row;
+    gap: 12px;
+  }
+}
 
     @media (max-width: 420px) {
       .brand { font-size: 64px; }
