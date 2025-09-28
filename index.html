@@ -47,11 +47,10 @@
       max-width: 1800px;
       margin: 0 auto;
       padding: 34px 0 6px;
-
-      display: flex;                /* Flex container for title + links */
-      justify-content: space-between; /* Brand left, links right */
-      align-items: flex-start;      /* Align links to top of header */
-      flex-wrap: wrap;              /* Wrap on smaller screens */
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
     }
 
     .brand {
@@ -103,17 +102,8 @@
     }
 
     .left img {
-  width: 100%;
-  max-width: 900px;   /* limit how wide it can get */
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.04);
-}
-
-    .left img {
       width: 100%;
+      max-width: 900px;
       height: auto;
       object-fit: cover;
       border-radius: 12px;
@@ -121,57 +111,53 @@
       border: 1px solid rgba(255,255,255,0.04);
     }
 
-    /* Right column: Bandcamp cards */
-    /* Bandcamp: allow multiple fixed-size cards in a row */
-.bandcamp {
-  display: flex;
-  flex-wrap: wrap;         /* wrap to next line when necessary */
-  gap: 16px;
-  align-items: flex-start;
-  justify-content: flex-end; /* keep group anchored to the right */
-  flex: 0 0 auto;          /* don't force a percentage width; size to content */
-  max-width: none;         /* remove previous max-width constraint */
-  margin-left: auto;       /* keeps the whole block pushed right in .container */
-  box-sizing: border-box;
-}
-
-/* Each card is fixed to the small embed size */
-.card {
-  width: 170px;            /* fixed card width to match iframe */
-  flex: 0 0 170px;         /* prevents flex from stretching the card */
-  background: var(--card-bg);
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-  transition: transform .25s ease, box-shadow .25s ease, filter .25s;
-  display: block;
-}
-
-    :root {
-  --card-glow: rgba(123, 175, 212, 0.6); /* a nice bluish glow */
-}
-    .card {
-      width: 100%;
-      background: var(--card-bg);
-      padding: 10px;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.5);
-      transition: transform .25s ease, box-shadow .25s ease, filter .25s;
-      display: block;
+    /* Bandcamp single-player */
+    .bandcamp.single-player {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      margin-left: auto;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 30px var(--card-glow);
-      filter: brightness(1.05);
+    .track-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      min-width: 180px;
     }
 
-    .card iframe {
-  display: block;
-  width: 170px;
-  height: 284px;
-  border: 0;
-}
+    .track-btn {
+      background: rgba(255,255,255,0.03);
+      color: #7BAFD4;
+      border: 1px solid rgba(123,175,212,0.12);
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: left;
+      font-weight: 600;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+
+    .track-btn:hover {
+      background: rgba(123,175,212,0.08);
+      box-shadow: 0 4px 10px rgba(123,175,212,0.1);
+    }
+
+    .track-btn.active {
+      background: rgba(123,175,212,0.14);
+      color: #fff;
+      box-shadow: 0 6px 20px rgba(123,175,212,0.12);
+    }
+
+    .player-wrap iframe {
+      width: 170px;
+      height: 284px;
+      border: 0;
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    }
 
     /* Additional sections: About Me / Contact */
     section {
@@ -226,46 +212,25 @@
     }
 
     /* Responsive adjustments */
-    @media (max-width: 1200px) {
-      .bandcamp { flex: 0 0 25vw; max-width: 30%; }
-      .container { gap: 30px; }
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 40px;
+      }
+
+      .bandcamp.single-player {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .track-list {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
     }
-
-    @media (max-width: 900px){
-  .container {
-    flex-direction: column;
-    gap: 20px;
-    padding-bottom: 40px;
-  }
-
-  .bandcamp {
-    width: 100%;
-    max-width: 100%;
-    margin-left: 0;
-    justify-content: center;   /* center the cards */
-    align-items: center;
-    order: 2;
-    display: flex;
-    flex-wrap: wrap;           /* allow wrapping into rows */
-    gap: 16px;
-  }
-
-  .card {
-    width: calc(50% - 12px) !important;   /* two per row */
-    flex: 0 0 calc(50% - 12px) !important;
-    max-width: 320px;          /* prevents stretching too wide */
-  }
-
-  .card iframe {
-    width: 100% !important;              /* iframe fills card */
-    height: auto;              /* scales with card height */
-  }
-
-  .left .img-row {
-    flex-direction: row;
-    gap: 12px;
-  }
-}
   </style>
 </head>
 <body>
@@ -288,26 +253,26 @@
     </div>
   </div>
 
-  <!-- Right column: Bandcamp cards -->
-  <aside class="bandcamp" aria-label="Tracks">
-    <div class="card" aria-hidden="false">
-      <iframe style="border: 0; width: 170px; height: 284px;" src="https://bandcamp.com/EmbeddedPlayer/track=86896478/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless>
-        <a href="https://yetiblanc.bandcamp.com/track/i-believe-in-travis-kelce-feat-js">I Believe In Travis Kelce (feat. JS) by Yeti Blanc (feat. JS)</a>
-      </iframe>
+  <!-- Right column: Bandcamp single-player -->
+  <aside class="bandcamp single-player" aria-label="Tracks">
+    <div class="track-list">
+      <button class="track-btn active" data-src="https://bandcamp.com/EmbeddedPlayer/track=86896478/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/">
+        I Believe In Travis Kelce (feat. JS)
+      </button>
+      <button class="track-btn" data-src="https://bandcamp.com/EmbeddedPlayer/track=3614133750/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/">
+        Mornin' Man (feat. Greg Cote)
+      </button>
+      <button class="track-btn" data-src="https://bandcamp.com/EmbeddedPlayer/track=566721571/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/">
+        Pebble Drive
+      </button>
+      <button class="track-btn" data-src="https://bandcamp.com/EmbeddedPlayer/track=2574557713/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/">
+        Pirate Radio Anthem
+      </button>
     </div>
-    <div class="card">
-      <iframe style="border: 0; width: 170px; height: 284px;" src="https://bandcamp.com/EmbeddedPlayer/track=3614133750/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless>
-        <a href="https://yetiblanc.bandcamp.com/track/mornin-man-feat-greg-cote">Mornin&#39; Man (feat. Greg Cote) by Yeti Blanc</a>
-      </iframe>
-    </div>
-    <div class="card">
-      <iframe style="border: 0; width: 170px; height: 284px;" src="https://bandcamp.com/EmbeddedPlayer/track=566721571/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless>
-        <a href="https://yetiblanc.bandcamp.com/track/pebble-drive">Pebble Drive by Yeti Blanc</a>
-      </iframe>
-    </div>
-    <div class="card">
-      <iframe style="border: 0; width: 170px; height: 284px;" src="https://bandcamp.com/EmbeddedPlayer/track=2574557713/size=large/bgcol=ffffff/linkcol=0687f5/tracklist=false/transparent=true/" seamless>
-        <a href="https://yetiblanc.bandcamp.com/track/pirate-radio-anthem">Pirate Radio Anthem by Yeti Blanc</a>
+    <div class="player-wrap">
+      <iframe id="bc-player"
+        src="https://bandcamp.com/EmbeddedPlayer/track=86896478/size=small/bgcol=ffffff/linkcol=0687f5/transparent=true/"
+        seamless>
       </iframe>
     </div>
   </aside>
@@ -328,13 +293,30 @@
   <div class="section-content">
     <h2>Contact</h2>
     <p>Talk to me <a href="mailto:yetiblancmusic@gmail.com">yetiblancmusic@gmail.com</a></p>
-   
   </div>
 </section>
 
 <footer>
   © 2025 Yeti Blanc · <a href="https://yetiblanc.com" style="color:var(--accent)">yetiblanc.com</a>
 </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.track-btn');
+  const player = document.getElementById('bc-player');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const src = btn.dataset.src;
+      if (!src) return;
+      player.src = src;
+
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+});
+</script>
 
 </body>
 </html>
