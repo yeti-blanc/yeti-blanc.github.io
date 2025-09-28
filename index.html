@@ -123,15 +123,19 @@
 
     /* Right column: Bandcamp cards */
     .bandcamp {
-      flex: 0 0 20vw;
-      max-width: 25%;
-      margin-left: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      align-items: flex-end;
-      box-sizing: border-box;
-    }
+  display: flex;
+  flex-wrap: wrap;       /* allow multiple per row */
+  gap: 16px;
+  align-items: flex-start;
+  justify-content: flex-end; /* keeps them hugging the right side */
+  flex: 0 0 auto;        /* no fixed width anymore */
+}
+
+.card {
+  width: 170px;  /* matches your iframe */
+  flex: 0 0 auto;
+}
+
     :root {
   --card-glow: rgba(123, 175, 212, 0.6); /* a nice bluish glow */
 }
