@@ -41,46 +41,55 @@
       50% {opacity: 0.3;}
     }
 
-    /* Header with top-aligned links */
-    header {
-      width: 95%;
-      max-width: 1800px;
-      margin: 0 auto;
-      padding: 34px 0 6px;
+    /* ----- Header: brand + links inline, text bottoms aligned ----- */
+header {
+  width: 95%;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 34px 0 6px;
 
-      display: flex;                /* Flex container for title + links */
-      justify-content: space-between; /* Brand left, links right */
-      align-items: flex-start;      /* Align links to top of header */
-      flex-wrap: wrap;              /* Wrap on smaller screens */
-    }
+  display: flex;
+  justify-content: flex-start; /* brand left, links immediately to the right */
+  align-items: baseline;       /* align text baselines for visual text-bottom alignment */
+  gap: 28px;                   /* spacing between brand and links */
+  flex-wrap: wrap;
+}
 
-    .brand {
-      font-family: "Bebas Neue", "Trebuchet MS", Impact, sans-serif;
-      font-size: 80px;
-      letter-spacing: 1px;
-      color: #7BAFD4;
-      margin: 0 0 8px 0;
-    }
+/* Brand: big headline, make sure line-height is tight */
+.brand {
+  font-family: "Bebas Neue", "Trebuchet MS", Impact, sans-serif;
+  font-size: 80px;
+  letter-spacing: 1px;
+  color: #7BAFD4;
+  margin: 0;       /* remove default margins that can push baseline */
+  line-height: 1;  /* important so baseline is predictable */
+}
 
-    .links {
-      display: flex;
-      justify-content: flex-end;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
+/* Links: sit right beside the brand; keep baseline alignment */
+.links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 0;        /* remove previous top-margin that kicked them down */
+  align-items: baseline; /* double-insure children align on baseline */
+}
 
-    .links a {
-      color: #7BAFD4;
-      text-decoration: none;
-      font-weight: 600;
-      transition: color .2s, text-shadow .2s;
-    }
+/* Force links to use Montserrat (prevents accidental font inheritance) */
+.links a {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px;
+  line-height: 1;   /* same trick to keep vertical metrics consistent */
+  color: #7BAFD4;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 2px 0;   /* small vertical padding so hit-target is large but doesn't affect baseline */
+}
 
-    .links a:hover {
-      color: #fff;
-      text-shadow: 0 0 6px #7BAFD4;
-    }
+/* Hover state unchanged */
+.links a:hover {
+  color: #fff;
+  text-shadow: 0 0 6px #7BAFD4;
+}
 
     /* Main container */
     .container {
