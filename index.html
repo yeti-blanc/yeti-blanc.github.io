@@ -191,11 +191,11 @@ section {
   box-shadow: none;
 }
 
-/* Wrap for consistent alignment with image column (collage) */
+/* Wrap for consistent alignment with image column */
 .section-content {
   width: 100%;
-  max-width: 900px; /* match collage width */
-  margin-left: calc((100% - 1800px) / 2 + 2.5%); /* aligns with left edge of collage */
+  max-width: 900px; /* matches image width */
+  margin-left: calc((100% - 1800px) / 2); /* corrected alignment with collage edge */
   background: rgba(255, 255, 255, 0.03);
   border-radius: 12px;
   padding: 40px 30px;
@@ -255,7 +255,7 @@ footer {
 /* Responsive behavior */
 @media (max-width: 1800px) {
   .section-content {
-    margin-left: 2.5%;
+    margin-left: 2.5%; /* stays consistent with container padding */
   }
 }
 
