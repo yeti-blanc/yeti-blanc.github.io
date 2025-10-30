@@ -184,17 +184,18 @@ header {
 
     /* Additional sections: About Me / Contact */
 section {
-  width: 95%;
-  max-width: 1800px; /* matches main container */
+  width: 100%;
   margin: 0 auto 60px;
   padding: 0;
   background: none;
   box-shadow: none;
 }
 
+/* Wrap for consistent alignment with image column */
 .section-content {
-  max-width: 900px;          /* same width as collage */
-  margin: 0;                 /* remove weird calc margins */
+  width: 100%;
+  max-width: 900px; /* matches image width */
+  margin-left: calc((100% - 1800px) / 2); /* corrected alignment with collage edge */
   background: rgba(255, 255, 255, 0.03);
   border-radius: 12px;
   padding: 40px 30px;
@@ -203,7 +204,7 @@ section {
   transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
 }
 
-/* Glow hover effect */
+/* Glow hover effect to match cards and images */
 .section-content:hover {
   box-shadow: 0 10px 40px rgba(123, 175, 212, 0.6);
   transform: translateY(-4px);
@@ -247,14 +248,18 @@ section a:hover {
 }
 
 /* Responsive behavior */
-@media (max-width: 900px) {
-  section {
-    width: 90%;
-  }
+@media (max-width: 1800px) {
   .section-content {
-    max-width: 100%;
+    margin-left: 2.5%; /* stays consistent with container padding */
   }
 }
+
+@media (max-width: 900px) {
+  .section-content {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   .bandcamp {
     width: 100%;
@@ -284,7 +289,6 @@ section a:hover {
     gap: 12px;
   }
 }
-
   </style>
 </head>
 <body>
