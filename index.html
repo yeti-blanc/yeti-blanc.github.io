@@ -183,7 +183,7 @@ header {
 }
 
     /* Additional sections: About Me / Contact */
-    section {
+section {
   width: 100%;
   margin: 0 auto 60px;
   padding: 0;
@@ -195,7 +195,7 @@ header {
 .section-content {
   width: 100%;
   max-width: 900px; /* matches image width */
-  margin-left: calc((100% - 1800px) / 2 + 2.5%); /* aligns with left image edge */
+  margin-left: calc((100% - 1800px) / 2); /* corrected alignment with collage edge */
   background: rgba(255, 255, 255, 0.03);
   border-radius: 12px;
   padding: 40px 30px;
@@ -250,7 +250,7 @@ section a:hover {
 /* Responsive behavior */
 @media (max-width: 1800px) {
   .section-content {
-    margin-left: 2.5%;
+    margin-left: 2.5%; /* stays consistent with container padding */
   }
 }
 
